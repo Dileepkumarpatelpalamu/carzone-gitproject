@@ -23,7 +23,7 @@ media
 
 # C extensions
 *.so
-
+*static/img
 # Distribution / packaging
 .Python
 build/
@@ -125,7 +125,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+gitscript
 # Spyder project settings
 .spyderproject
 .spyproject
