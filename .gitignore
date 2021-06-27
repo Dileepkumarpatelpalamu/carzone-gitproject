@@ -151,4 +151,5 @@ dmypy.json
 cython_debug/
 
 manage.py
+/carzone/settings.py
 # End of https://www.toptal.com/developers/gitignore/api/django
