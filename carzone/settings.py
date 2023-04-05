@@ -93,15 +93,13 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'carzone_db',
-#         'USER': 'postgres',
-#         'PASSWORD': '######',
-#         'HOST': 'localhost',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': '',
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',
 #     }
 # }
-
-#DATABASES = {'default': dj_database_url.config(default='postgres://postgres:######@localhost/carzone_db')}
 
 
 # Password validation
@@ -136,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
