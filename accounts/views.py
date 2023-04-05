@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -21,6 +22,7 @@ def login(request):
             messages.error(request, 'Invalid login credentials')
             return redirect('login')
     return render(request, 'accounts/login.html')
+
 
 def register(request):
     if request.method == 'POST':
@@ -40,12 +42,14 @@ def register(request):
                     messages.error(request, 'Email already exists!')
                     return redirect('register')
                 else:
-                    user = User.objects.create_user(first_name=firstname, last_name=lastname, email=email, username=username, password=password)
+                    user = User.objects.create_user(
+                        first_name=firstname, last_name=lastname, email=email, username=username, password=password)
                     auth.login(request, user)
                     messages.success(request, 'You are now logged in.')
                     return redirect('dashboard')
                     user.save()
-                    messages.success(request, 'You are registered successfully.')
+                    messages.success(
+                        request, 'You are registered successfully.')
                     return redirect('login')
         else:
             messages.error(request, 'Password do not match')
@@ -54,15 +58,17 @@ def register(request):
         return render(request, 'accounts/register.html')
 
 
-@login_required(login_url = 'login')
+@login_required(login_url='login')
 def dashboard(request):
-    user_inquiry = Contact.objects.order_by('-create_date').filter(user_id=request.user.id)
+    user_inquiry = Contact.objects.order_by(
+        '-create_date').filter(user_id=request.user.id)
     # count = Contact.objects.order_by('-create_date').filter(user_id=request.user.id).count()
 
     data = {
         'inquiries': user_inquiry,
     }
     return render(request, 'accounts/dashboard.html', data)
+
 
 def logout(request):
     if request.method == 'POST':
